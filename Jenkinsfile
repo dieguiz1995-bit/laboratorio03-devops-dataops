@@ -1,26 +1,21 @@
 pipeline {
     agent any
-
     stages {
-
         stage('Validar Python') {
             steps {
-                bat 'python --version'
+                bat '"C:\\Users\\LENOVO\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" --version'
             }
         }
-
         stage('Instalar dependencias') {
             steps {
-                bat 'pip install pandas'
+                bat '"C:\\Users\\LENOVO\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install pandas'
             }
         }
-
         stage('Ejecutar procesamiento') {
             steps {
-                bat 'python scripts/procesamiento.py'
+                bat '"C:\\Users\\LENOVO\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" scripts\\procesamiento.py'
             }
         }
-
         stage('Validacion final') {
             steps {
                 echo 'Pipeline ejecutado correctamente'
