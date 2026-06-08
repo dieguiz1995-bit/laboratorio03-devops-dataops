@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Validar Python') {
+            steps {
+                bat 'python --version'
+            }
+        }
+
+        stage('Instalar dependencias') {
+            steps {
+                bat 'pip install pandas'
+            }
+        }
+
+        stage('Ejecutar procesamiento') {
+            steps {
+                bat 'python scripts/procesamiento.py'
+            }
+        }
+
+        stage('Validacion final') {
+            steps {
+                echo 'Pipeline ejecutado correctamente'
+            }
+        }
+
+    }
+}
